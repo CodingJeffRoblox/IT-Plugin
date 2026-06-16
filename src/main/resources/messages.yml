@@ -1,0 +1,93 @@
+# ITPlugin Messages
+# Supports standard Minecraft colour codes with & prefix.
+# Placeholders: {0}, {1}, {2} ... are positional arguments.
+# {prefix} / {prefix-warn} / {prefix-error} are auto-expanded.
+
+prefix: "&8[&bIT&8]&r "
+prefix-warn: "&8[&eIT&8]&r "
+prefix-error: "&8[&cIT&8]&r "
+line: "&8&m                                        &r"
+
+# ── General ──────────────────────────────────────────────
+no-permission: "{prefix-error}&cYou don't have permission to do that."
+player-only: "{prefix-error}&cOnly players can use this command."
+invalid-id: "{prefix-error}&cInvalid ticket ID: &f{0}&c."
+
+# ── Help Desk ─────────────────────────────────────────────
+ticket-created: "{prefix}&aTicket &f#TICK-{0}&a created! IT staff will assist you shortly."
+ticket-not-found: "{prefix-error}&cTicket &f#{0}&c not found."
+ticket-already-closed: "{prefix-warn}&eTicket &f#TICK-{0}&e is already closed."
+ticket-closed: "{prefix}&aTicket &f#TICK-{0}&a has been closed."
+ticket-closed-notify: "{prefix}&7Your ticket &f#TICK-{0}&7 was closed by &f{1}&7."
+ticket-assigned: "{prefix}&aTicket &f#TICK-{0}&a assigned to &f{1}&a."
+ticket-assigned-notify: "{prefix}&7You have been assigned ticket &f#TICK-{0}&7: &r{1}"
+ticket-comment-added: "{prefix}&aComment added to ticket &f#TICK-{0}&a."
+ticket-comment-notify: "{prefix}&7IT Staff replied to ticket &f#TICK-{0}&7: &r{1}"
+ticket-max-open: "{prefix-error}&cYou already have &f{0}&c open tickets. Please close one first."
+ticket-new-staff-alert: "{prefix}&e[NEW TICKET] &fTICK-{0} &7from &f{1}&7: &r{2}"
+ticket-no-results: "{prefix}&7No tickets found."
+
+# ── Chat prompts ──────────────────────────────────────────
+ticket-prompt-create: "{prefix}&7Type your IT issue in chat &8(type &fcancel&8 to abort)&7:"
+ticket-prompt-assign: "{prefix}&7Type the staff name to assign ticket &f#TICK-{0}&7 to &8(or &fcancel&8)&7:"
+ticket-prompt-comment: "{prefix}&7Type your comment for ticket &f#TICK-{0}&7 &8(or &fcancel&8)&7:"
+ticket-prompt-cancelled: "{prefix-warn}&eAction cancelled."
+
+# ── Join notifications ────────────────────────────────────
+join-open-tickets-staff: "{prefix}&7There are &e{0}&7 open IT ticket(s). Use &f/ticket list&7 to view them."
+join-own-open-tickets: "{prefix}&7You have &e{0}&7 open IT ticket(s). Use &f/ticket list&7 to check for updates."
+
+# ── Console monitor alerts ────────────────────────────────
+console-error-alert: "{prefix-error}&c[CONSOLE ERROR] &7{0}"
+
+# ── Config validator ──────────────────────────────────────
+validate-scanning: "{prefix}&7Scanning plugin config files..."
+validate-clean: "{prefix}&aDone — no issues found across all configs."
+validate-issues: "{prefix-warn}&eFound &f{0}&e issue(s) across all configs."
+
+# ── Admin commands ────────────────────────────────────────
+admin-config-reloaded: "{prefix}&aconfig.yml and messages.yml reloaded."
+admin-errors-none: "{prefix}&aNo console errors captured yet."
+admin-errors-cleared: "{prefix}&aCaptured error log cleared."
+admin-monitor-disabled: "{prefix-warn}&eCross-server monitor is disabled in config."
+
+# ── Terminal ──────────────────────────────────────────────
+terminal-prompt-command: "{prefix}&7Type the command to run as server console &8(or &fcancel&8)&7:"
+terminal-command-executed: "{prefix}&aExecuted: &f/{0}"
+terminal-command-denied: "{prefix-error}&cBlocked command: &f{0}&c. Edit config.yml to allow it."
+terminal-cleared: "{prefix}&aTerminal log cleared."
+terminal-book-no-data: "{prefix-warn}&eNo log lines captured yet. Wait a moment and try again."
+
+# ── Broadcast ─────────────────────────────────────────────
+broadcast-format: "&8[&cIT BROADCAST&8] &e{0}&8: &f{1}"
+broadcast-sent: "{prefix}&aBroadcast sent to &f{0}&a player(s)."
+broadcast-usage: "{prefix-error}&cUsage: /itbroadcast <message>"
+gui-broadcast-prompt: "{prefix}&7Enter your broadcast message &8(or type &ccancel&8)&7:"
+
+# ── Knowledge base notes ──────────────────────────────────
+notes-added: "{prefix}&aNote &f#N-{0}&a created: &f{1}"
+notes-deleted: "{prefix}&aNote &f#N-{0}&a deleted."
+notes-not-found: "{prefix-error}&cNote &f#{0}&c not found."
+notes-search-none: "{prefix-warn}&eNo notes matched &f\"{0}\"&e."
+notes-usage: "{prefix-error}&cUsage: /itnotes [list|view <id>|add <title>|<body>|delete <id>|search <query>]"
+notes-usage-view: "{prefix-error}&cUsage: /itnotes view <id>"
+notes-usage-add: "{prefix-error}&cUsage: /itnotes add <title>|<body>"
+notes-usage-delete: "{prefix-error}&cUsage: /itnotes delete <id>"
+notes-usage-search: "{prefix-error}&cUsage: /itnotes search <query>"
+
+# ── GUI Titles ────────────────────────────────────────────
+gui-main-title: "&9IT CENTER"
+gui-tickets-title: "&8&lIT Tickets"
+gui-detail-title: "&8&lTicket &f#TICK-{0}"
+gui-console-title: "&8&l⌨ IT Terminal"
+
+# ── GUI Button Labels (sub-GUIs) ──────────────────────────
+gui-btn-back:               "&7← Back"
+gui-btn-close:              "&cClose"
+gui-btn-prev:               "&7◀ Previous"
+gui-btn-next:               "&7Next ▶"
+
+# ── Ticket detail button labels ───────────────────────────
+gui-btn-close-ticket: "&cClose Ticket"
+gui-btn-assign:       "&eAssign"
+gui-btn-comment:      "&aAdd Comment"

@@ -1,0 +1,71 @@
+name: ITPlugin
+version: '${project.version}'
+main: com.itplugin.ITPlugin
+api-version: '1.21'
+description: IT Help Desk, Console Terminal, Cross-Server Monitoring, Config Validator, Knowledge Base — Created by CodingJeff
+authors: [CodingJeff]
+
+commands:
+  ticket:
+    description: IT Help Desk ticket system
+    usage: /ticket [create|list|view|close|assign|comment] [args]
+    aliases: [helpdesk, hd, itticket]
+  itadmin:
+    description: IT Admin panel — monitor, validate, errors, reload, gui, trust
+    usage: /itadmin [monitor|validate|errors|clearerrors|reload|gui|trust <generate|connect|list|revoke|status>]
+    permission: itplugin.admin
+  itconsole:
+    description: IT Console Terminal — live log viewer and command runner
+    usage: /itconsole [exec <cmd>|book [lvl]|filter <lvl>|clear|gui]
+    aliases: [itterm]
+    permission: itplugin.console
+  itbroadcast:
+    description: Send an IT staff broadcast to all online players
+    usage: /itbroadcast <message>
+    aliases: [itbc]
+    permission: itplugin.admin
+  itnotes:
+    description: IT knowledge base — list, view, add, delete, and search IT articles
+    usage: /itnotes [list|view|add|delete|search] [args]
+    aliases: [itkb, itarticles]
+    permission: itplugin.staff
+  ithelp:
+    description: Show all ITPlugin commands and usage
+    usage: /ithelp
+    aliases: [itcommands, ith]
+
+permissions:
+  itplugin.admin:
+    description: Full IT admin access (all commands, GUI, terminal, broadcast, notes)
+    default: op
+    children:
+      itplugin.staff: true
+      itplugin.console: true
+  itplugin.staff:
+    description: IT staff — can view/assign/close tickets, receive alerts, manage notes
+    default: false
+    children:
+      itplugin.ticket.view.all: true
+      itplugin.ticket.close.all: true
+      itplugin.ticket.assign: true
+  itplugin.console:
+    description: Access to the IT Console Terminal (log viewer + command runner)
+    default: op
+  itplugin.ticket.create:
+    description: Open a new help desk ticket
+    default: true
+  itplugin.ticket.view.own:
+    description: View own tickets
+    default: true
+  itplugin.ticket.view.all:
+    description: View all tickets
+    default: false
+  itplugin.ticket.close.own:
+    description: Close own tickets
+    default: true
+  itplugin.ticket.close.all:
+    description: Close any ticket
+    default: false
+  itplugin.ticket.assign:
+    description: Assign tickets to staff
+    default: false

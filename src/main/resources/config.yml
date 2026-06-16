@@ -1,0 +1,182 @@
+# ITPlugin + PVP System + Hunter Configuration
+# Reload IT settings with /itadmin reload
+# Reload Hunter settings with /hunter reload-config
+
+# ── Help Desk ────────────────────────────────────────────
+helpdesk:
+  max-open-tickets: 3
+  notify-staff-on-create: true
+  auto-close-days: 7
+  id-prefix: "TICK"
+
+# ── Console Error Monitor ────────────────────────────────
+console-monitor:
+  enabled: true
+  alert-staff: true
+  log-to-file: true
+  log-file: "plugins/ITPlugin/errors.log"
+  alert-patterns:
+    - "SEVERE"
+    - "ERROR"
+    - "Exception"
+    - "NullPointerException"
+    - "OutOfMemoryError"
+    - "StackOverflowError"
+  ignore-patterns:
+    - "Reached end of stream"
+    - "Connection reset"
+
+# ── Console Terminal ─────────────────────────────────────
+console-terminal:
+  enabled: true
+  max-lines: 500
+  blocked-commands:
+    - "stop"
+    - "restart"
+    - "reload"
+  log-commands: true
+  command-log-file: "plugins/ITPlugin/commands.log"
+
+# ── BungeeCord Cross-Server Monitor ──────────────────────
+server-monitor:
+  enabled: true
+  poll-interval-ticks: 200
+  tracked-servers:
+    - "lobby"
+    - "survival"
+    - "creative"
+
+# ── Trust-Based Monitor ───────────────────────────────────
+monitor:
+  http:
+    enabled: false
+    port: 28080
+  client:
+    enabled: false
+    main-server: ""
+    token: ""
+    server-name: ""
+    heartbeat-interval-seconds: 30
+  cloud:
+    enabled: false
+    api-url: ""
+    api-key: ""
+    server-nick: ""
+    heartbeat-interval-seconds: 30
+    poll-interval-seconds: 15
+
+# ── Config Validator ─────────────────────────────────────
+config-validator:
+  scan-directories:
+    - "plugins"
+  report-warnings: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PVP SYSTEM CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════════
+combat-tag:
+  duration-seconds: 10
+  tag-attacker: true
+  kill-on-logout: true
+  broadcast-logout-kill: true
+  untag-on-gamemode-change: true
+  excluded-worlds:
+    - "world_lobby"
+    - "spawn"
+  show-action-bar: true
+  high-threshold: 6
+  low-threshold: 3
+  high-color: "&a"
+  mid-color:  "&e"
+  low-color:  "&c"
+  sound-on-tag:
+    enabled: true
+    sound: "ENTITY_ARROW_HIT_PLAYER"
+    volume: 1.0
+    pitch: 1.2
+  sound-on-expire:
+    enabled: true
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.0
+  sound-tick:
+    enabled: true
+    tick-threshold: 3
+    sound: "UI_BUTTON_CLICK"
+    volume: 0.5
+    pitch: 1.5
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HUNTER CONFIGURATION
+# Reload in-game with /hunter reload-config
+# ═══════════════════════════════════════════════════════════════════════════════
+hunter:
+
+  # ── Gun settings ─────────────────────────────────────────────────────────────
+  gun:
+    # Display name of the rifle item (supports & colour codes + emoji)
+    display-name: "&6&lHunting Rifle"
+
+    # Base damage dealt per shot (Minecraft damage units = half-hearts)
+    damage: 8.0
+
+    # Number of rounds the magazine holds before a reload is required
+    magazine-size: 6
+
+    # Initial velocity multiplier for the snowball bullet (higher = faster/farther)
+    bullet-speed: 4.0
+
+    # Minimum milliseconds between shots — prevents rapid-fire spam
+    shot-cooldown-ms: 800
+
+    # Ticks to complete a full magazine reload (20 ticks = 1 second)
+    # Default 40 ticks = 2 seconds
+    reload-ticks: 40
+
+    # Damage multiplier applied when the player has the scope active (sneaking)
+    scope-damage-bonus: 1.5
+
+    # Additional multiplier applied on a headshot (stacks with scope bonus)
+    headshot-multiplier: 2.0
+
+    # Whether players can drop the rifle (Q key or inventory drag-out)
+    allow-drop: false
+
+  # ── Ammo settings ─────────────────────────────────────────────────────────────
+  ammo:
+    # Display name of the ammo stack item
+    display-name: "&fRifle Ammo"
+
+    # Number of ammo rounds given by /hunter give and /hunter ammo (no args)
+    starter-amount: 24
+
+  # ── Crafting recipes ──────────────────────────────────────────────────────────
+  crafting:
+    # Set to false to completely disable rifle + ammo crafting recipes
+    enabled: true
+
+    # How many ammo items are produced by one full 3x3 gunpowder grid craft
+    ammo-yield: 16
+
+  # ── Session / misc ────────────────────────────────────────────────────────────
+  # Whether to send the Hunter welcome/status message when a player joins
+  join-welcome: true
+
+  # ── Kill score weights ────────────────────────────────────────────────────────
+  # Points awarded per kill, keyed by Bukkit EntityType name (lowercase).
+  # Any huntable entity type not listed here defaults to 1 point per kill.
+  score-weights:
+    cow:        5    # Deer (Cow)     — most common, moderate points
+    mooshroom:  5    # Deer (Mooshroom) — same tier as cow
+    pig:        3    # Boar           — common, low-medium
+    rabbit:     2    # Rabbit         — common, low points
+    chicken:    1    # Chicken        — very common, minimal points
+    sheep:      2    # Sheep          — common, low points
+    fox:        4    # Fox            — uncommon, medium points
+    wolf:       6    # Wolf           — rare/dangerous, high points
+    goat:       3    # Goat           — mountain biome, medium points
+    llama:      3    # Llama          — medium rarity, medium points
+    polar_bear: 8    # Polar Bear     — rare, highest base points
+    horse:      4    # Horse          — medium rarity
+    donkey:     3    # Donkey         — medium rarity
+    mule:       3    # Mule           — medium rarity

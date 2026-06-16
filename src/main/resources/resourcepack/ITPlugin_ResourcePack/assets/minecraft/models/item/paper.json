@@ -1,0 +1,68 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "minecraft:item/paper"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 1
+      },
+      "model": "itplugin:item/tickets"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 2
+      },
+      "model": "itplugin:item/staff_dashboard"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 3
+      },
+      "model": "itplugin:item/server_monitor"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 4
+      },
+      "model": "itplugin:item/console_terminal"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 5
+      },
+      "model": "itplugin:item/knowledge_base"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 6
+      },
+      "model": "itplugin:item/online_staff"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 7
+      },
+      "model": "itplugin:item/broadcast"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 8
+      },
+      "model": "itplugin:item/admin_tools"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 9
+      },
+      "model": "itplugin:item/alerts"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 10
+      },
+      "model": "itplugin:item/exit_btn"
+    }
+  ]
+}
